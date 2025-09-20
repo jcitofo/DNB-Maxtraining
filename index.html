@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DNB Français - Max Training</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="hero">
+        <div class="hero__content">
+          <div>
+            <p class="hero__tag">Préparation DNB • Niveau 3ᵉ</p>
+            <h1 class="hero__title">MaxTraining Français</h1>
+            <p class="hero__subtitle">
+              Un coach intelligent qui détecte tes faiblesses et t'aide à viser
+              la mention au DNB.
+            </p>
+            <div class="hero__actions">
+              <button id="start-quiz" class="btn btn--primary">
+                Commencer un entraînement
+              </button>
+              <button id="show-themes" class="btn btn--secondary">
+                Choisir un thème
+              </button>
+            </div>
+          </div>
+          <div class="hero__stats">
+            <div class="stat-card">
+              <span class="stat-card__icon">🏆</span>
+              <div>
+                <p class="stat-card__label">Quiz validés</p>
+                <p class="stat-card__value" id="stat-total-quizzes">0</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__icon">📈</span>
+              <div>
+                <p class="stat-card__label">Réussite globale</p>
+                <p class="stat-card__value" id="stat-success-rate">0%</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__icon">🧠</span>
+              <div>
+                <p class="stat-card__label">Questions vues</p>
+                <p class="stat-card__value" id="stat-total-questions">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="themes" id="theme-section">
+          <div class="section-heading">
+            <h2>Exploration des thèmes du DNB</h2>
+            <p>
+              Chaque entraînement tire 10 questions d'un niveau exigeant (5/5).
+              L'algorithme repère tes fragilités et concentre les séries
+              suivantes sur les notions à consolider.
+            </p>
+          </div>
+          <div class="theme-grid" id="theme-grid"></div>
+        </section>
+
+        <section class="focus" id="focus-section">
+          <div class="section-heading">
+            <h2>Analyse intelligente</h2>
+            <p>
+              Tes forces et faiblesses évoluent à chaque question. La prochaine
+              série est automatiquement ciblée sur les points à retravailler.
+            </p>
+          </div>
+          <div class="focus__content">
+            <div class="focus-card" id="focus-strengths">
+              <h3>Points forts</h3>
+              <ul class="focus-list" id="strength-list"></ul>
+            </div>
+            <div class="focus-card focus-card--alert" id="focus-weaknesses">
+              <h3>Points à consolider</h3>
+              <ul class="focus-list" id="weakness-list"></ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <section class="quiz" id="quiz-screen" hidden>
+        <div class="quiz__header">
+          <button id="back-to-menu" class="btn btn--ghost">← Retour</button>
+          <div class="quiz__progress">
+            <div class="quiz__progress-bar" id="progress-bar"></div>
+          </div>
+          <div class="quiz__score">
+            Score : <span id="quiz-score">0</span>/10
+          </div>
+        </div>
+
+        <div class="quiz__body">
+          <div class="quiz__theme" id="quiz-theme"></div>
+          <h2 class="quiz__question" id="quiz-question"></h2>
+          <div class="quiz__options" id="quiz-options"></div>
+          <div class="quiz__explanation" id="quiz-explanation" hidden></div>
+          <div class="quiz__actions">
+            <button id="show-answer" class="btn btn--accent" disabled>
+              Valider la réponse
+            </button>
+            <button id="next-question" class="btn btn--primary" disabled>
+              Question suivante
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="results" id="results-screen" hidden>
+        <div class="results__card">
+          <div class="results__badge">🎯</div>
+          <h2 id="results-title">Bravo !</h2>
+          <p class="results__summary" id="results-summary"></p>
+          <div class="results__grid" id="results-grid"></div>
+          <div class="results__actions">
+            <button id="retry-focus" class="btn btn--accent">
+              Relancer sur mes faiblesses
+            </button>
+            <button id="retry-random" class="btn btn--primary">
+              Nouvelle série aléatoire
+            </button>
+            <button id="results-menu" class="btn btn--ghost">
+              Retourner au menu
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>
+        © 2024 MaxTraining • Application d'entraînement DNB Français (niveau
+        5/5)
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
